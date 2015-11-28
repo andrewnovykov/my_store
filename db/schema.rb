@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20151125193811) do
     t.string   "name"
     t.boolean  "real"
     t.float    "weight"
-    t.string   "desciption"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "items", ["name"], name: "index_items_on_name"
