@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 		unless @item = Item.where(id: params[:id]).first
 			
 		
-			render text: "Страница не найдена", status: 404
+		render text: "Страница не найдена", status: 404
 		end
 	end
 
@@ -36,7 +36,9 @@ class ItemsController < ApplicationController
 
 	# /items/1  DELETE
 	def destroy
-		
+		@item = Item.find(params[:id])
+		@item.destroy
+		redirect_to action: "index"
 	end
 
 	# /items/1/edit  GET
@@ -46,7 +48,8 @@ class ItemsController < ApplicationController
 
 	# /items/new  GET
 	def new
-		@item = Item.new
+		@item = Item.find(params[:id])
+
 	end
 
 
