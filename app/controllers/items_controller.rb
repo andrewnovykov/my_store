@@ -25,7 +25,13 @@ class ItemsController < ApplicationController
 
 	# /items/1  PUT
 	def update
-		
+		@item = Item.find(params[:id])
+		@item.update_attributes(params[:item])
+		if @item.errors.empty?
+			redirect_to item_path(@item)
+		else
+			render "edit"
+		end		
 	end
 
 	# /items/1  DELETE
@@ -35,7 +41,7 @@ class ItemsController < ApplicationController
 
 	# /items/1/edit  GET
 	def edit
-		
+		@item = Item.find(params[:id])
 	end
 
 	# /items/new  GET
