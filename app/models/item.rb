@@ -5,11 +5,9 @@ class Item < ActiveRecord::Base
 	validates :description, presence: true
 	validates :name, presence: true
 
-	after_initialize {  }
-	after_save {   }
-	after_create {  }
-	after_update {   }
-	after_destroy {   }
+	has_and_belongs_to_many :carts
+
+	
 
 
 
