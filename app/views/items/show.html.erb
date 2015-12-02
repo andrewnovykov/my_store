@@ -5,7 +5,7 @@
 			<%=  @item.price %>
 		</li>
 		<li>
-			<%=  @item.description %>
+			<%= urls_to_links(urls_to_images(@item.description))   %>
 		</li>
 		<li>
 			<%=  @item.weight %>
